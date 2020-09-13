@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 const axios = require('axios')
 
 const Note = ({ note }) => {
@@ -29,7 +30,8 @@ const Note = ({ note }) => {
             <h4 className="card-header">{note.title}</h4>
             <div className="card-body">
               <p className="card-text">{note.description}</p>
-              <button className='btn btn-danger' onClick={handleDelete}>Delete</button>
+              <button className='btn btn-danger m-1' onClick={handleDelete}>Delete</button>
+              <Link href={`/${note._id}/edit`}><button className='btn btn-primary'>Edit</button></Link>
             </div>
           </div>
       }

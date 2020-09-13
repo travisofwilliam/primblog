@@ -21,9 +21,6 @@ const Index = ({ notes }) => {
                     <Link href={`/${note._id}`}>
                       <a className="btn btn-primary mr-2">View</a>
                     </Link>
-                    <Link href={`/${note._id}/edit`}>
-                      <a className="btn btn-primary">Edit</a>
-                    </Link>
                   </div>
                 </div>
               </div>
