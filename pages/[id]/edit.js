@@ -21,8 +21,9 @@ const Edit = ({ note }) => {
   }, [errors])
 
   const updateNote = async () => {
+
     try {
-      await axios.put(`http://localhost:3000/api/notes/${router.query.id}`, form)
+      await axios.put(`/api/notes/${router.query.id}`, form)
 
       router.push('/')
     } catch (error) {
