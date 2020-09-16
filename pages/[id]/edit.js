@@ -25,7 +25,7 @@ const Edit = ({ note }) => {
     try {
       await axios.put(`/api/notes/${router.query.id}`, form)
 
-      router.push('/')
+      router.push('/api')
     } catch (error) {
       console.log(error)
     }

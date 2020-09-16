@@ -14,7 +14,7 @@ const Note = ({ note }) => {
 
     try {
       const deleteID = router.query.id
-      await axios.delete(`http://localhost:3000/api/notes/${deleteID}`)
+      await axios.delete(`/api/notes/${deleteID}`)
 
       router.push('/')
     } catch (error) {
