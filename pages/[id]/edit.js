@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import absoluteUrl from 'next-absolute-url'
 const axios = require('axios')
 
 const Edit = ({ note }) => {
@@ -92,8 +93,9 @@ const Edit = ({ note }) => {
   )
 }
 
-Edit.getInitialProps = async ({ query: { id } }) => {
-  const res = await axios.get(`http://localhost:3000/api/notes/${id}`)
+Edit.getInitialProps = async ({ req, query: { id } }) => {
+  const { protocol, host } = absoluteUrl(req)
+  const res = await axios.get(`${protocol}//${host}/api/notes/${id}`)
 
   const { data } = res.data
 
