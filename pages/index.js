@@ -2,6 +2,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 const axios = require('axios')
 
+import absoluteUrl from 'next-absolute-url'
+
 const Index = ({ notes }) => {
 
   return (
@@ -32,8 +34,10 @@ const Index = ({ notes }) => {
   )
 }
 
-Index.getInitialProps = async () => {
-  const res = await axios.get('http://localhost:3000/api/notes')
+Index.getInitialProps = async (ctx) => {
+  const { protocol, host } = absoluteUrl(ctx.req)
+
+  const res = await axios.get(`${protocol}//${host}/api/notes`)
 
   const data = res.data.data
 

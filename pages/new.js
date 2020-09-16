@@ -21,7 +21,7 @@ const NewPost = () => {
 
   const createNote = async () => {
     try {
-      await axios.post('http://localhost:3000/api/notes', form)
+      await axios.post('/api/notes', form)
 
       router.push('/')
     } catch (error) {
